@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <!-- ✅ 모바일 확대 방지 -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
     <title>아쿠아리움_뱀 게임</title>
     <link rel="stylesheet" href="main.css">
 </head>
@@ -26,36 +27,57 @@
             <div id="player_name_display"></div>
         </div>
 
-        <canvas id="game_area"></canvas><br>
+        <div id="game_container">
+            <canvas id="game_area"></canvas>
+
+            <div id="control_panel">
+                <div class="dpad">
+                    <button class="btn up">UP</button>
+                    <div class="middle-row">
+                        <button class="btn left">LEFT</button>
+                        <button class="btn right">RIGHT</button>
+                    </div>
+                    <button class="btn down">DOWN</button>
+                </div>
+
+                <div class="startpause">
+                    <button id="start">START</button>
+                    <button id="pause" disabled>PAUSE</button>
+                </div>
+            </div>
+        </div>
 
         <p id="copyright">
             제작자: @REAPPEARANCE
         </p>
-        
-        <button class="btn up">UP</button><br>
-        <button class="btn left">LEFT</button>
-        <button class="btn right">RIGHT</button><br>
-        <button class="btn down">DOWN</button><br>
-
-        <button id="start">START</button>
-        <button id="pause" disabled>PAUSE</button><br>
     </div>
 
-    <script src="script.js">
+    <!-- 외부 게임 로직 -->
+    <script src="script.js"></script>
+
+    <!-- ✅ 확대 방지용 인라인 스크립트 (src 없는 별도 태그여야 함) -->
+    <script>
+        // 더블탭 확대 방지 (iOS/Safari 대응)
         let lastTouchEnd = 0;
         document.addEventListener('touchend', function (event) {
-            const now = new Date().getTime();
+            const now = Date.now();
             if (now - lastTouchEnd <= 300) {
                 event.preventDefault();
             }
             lastTouchEnd = now;
-        }, false);
+        }, { passive: false });
 
-        // ✅ 핀치 줌(두 손가락 확대) 방지
-        document.addEventListener('gesturestart', function (event) {
+        // 핀치 줌(두 손가락) 방지
+        document.addEventListener('touchstart', function (event) {
+            if (event.touches.length > 1) {
+                event.preventDefault();
+            }
+        }, { passive: false });
+
+        // 더블클릭 확대 방지 (일부 브라우저)
+        document.addEventListener('dblclick', function (event) {
             event.preventDefault();
-        });
+        }, { passive: false });
     </script>
-    
 </body>
 </html>
