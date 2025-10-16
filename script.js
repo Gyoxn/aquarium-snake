@@ -6,8 +6,13 @@ var pauseBtn = document.getElementById('pause');
 var bestScoreElement = document.getElementById('best_score');
 var myScoreElement = document.getElementById('my_score');
 
-const width = 450;
-const height = 350;
+// ✅ 모바일 화면에서는 자동으로 크기 축소
+let width = 450;
+let height = 350;
+if (window.innerWidth <= 600) {
+  width = 360;
+  height = 280;
+}
 const snakeSize = 10;
 
 // ── 속도 규칙형 ────────────────────────
@@ -52,18 +57,16 @@ const nameDisplay = document.getElementById('player_name_display');
   window.onload = function() {
     snakeGame.init();
     pauseBtn.disabled = true;
-    loadPlayerName(); // 🎮 닉네임 불러오기
+    loadPlayerName();
   };
 
   startBtn.addEventListener("click", function(){ snakeGame.start(); });
   pauseBtn.addEventListener("click", function(){ snakeGame.togglePause(); });
 
-  // 🎮 닉네임 저장 기능
   nameBtn.addEventListener("click", savePlayerName);
   nameInput.addEventListener("keypress", e => { if (e.key === "Enter") savePlayerName(); });
 })();
 
-// 🎮 닉네임 관련 함수
 function loadPlayerName() {
   try {
     const name = localStorage.getItem(LS_KEYS.NAME);
@@ -187,11 +190,10 @@ var snakeGame = (function() {
   }
 
   var draw={
-    // 🎨 지렁이 색 연파란색으로 변경
     sankeBody(x,y){
-      ctx.fillStyle = '#7ec8e3'; // 연파란색
+      ctx.fillStyle = '#7ec8e3';
       ctx.fillRect(x*snakeSize,y*snakeSize,snakeSize,snakeSize);
-      ctx.strokeStyle = '#3a89b7'; // 테두리: 진한 하늘색
+      ctx.strokeStyle = '#3a89b7';
       ctx.strokeRect(x*snakeSize,y*snakeSize,snakeSize,snakeSize);
     },
     food(x,y){
@@ -200,7 +202,6 @@ var snakeGame = (function() {
       ctx.strokeStyle='black';
       ctx.strokeRect(x*snakeSize,y*snakeSize,snakeSize,snakeSize);
     },
-
     pauseOverlay(){
       ctx.save();
       ctx.fillStyle="rgba(0,0,0,0.5)";
@@ -214,7 +215,6 @@ var snakeGame = (function() {
       ctx.fillText("재개하려면 RESUME 버튼이나 SPACE BAR를 눌러주세요.",width/2,height/2+25);
       ctx.restore();
     },
-
     gameOverOverlay(){
       ctx.save();
       ctx.fillStyle = "rgba(0, 0, 0, 0.55)";
