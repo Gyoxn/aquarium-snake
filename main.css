@@ -1,0 +1,94 @@
+@charset "utf-8";
+@font-face {
+    font-family: 'Cafe24ProUp';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2507-1@1.0/Cafe24PROUP.woff2') format('woff2');
+    font-weight: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'PfStardust';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/PFStardust.woff') format('woff');
+    font-weight: normal;
+    font-display: swap;
+}
+
+html { font-family: 'Cafe24ProUp'; }
+
+#title {
+    color: #d5e4f1;
+    text-shadow: 3px 4px #37558d;
+}
+
+#score_board {
+    margin: 10px 0;
+    font-size: 17px;
+    color: #303035;
+    padding: 5px;
+}
+
+#best_score { color: #354486; font-weight: bold; }
+#my_score { color: #56aac4; font-weight: bold; }
+
+.btn {
+    font-family: 'PfStardust';
+    background-color: #133681;
+    border: none;
+    color: white;
+    width: 70px;
+    height: 35px;
+    margin: 5px 2px 0px 2px;
+}
+.btn:active { background-color: #90e5eb; }
+
+#start, #pause {
+    font-family: 'PfStardust';
+    background-color: #8ebae4;
+    color: #fff;
+    border: none;
+    margin: 20px 5px 0px 5px;
+    width: 100px;
+    height: 30px;
+}
+#start:hover, #pause:hover:not(:disabled) { background-color: #4871bd; }
+#start:disabled, #pause:disabled { background-color: #232942; }
+
+#copyright {
+    font-family: 'PfStardust';
+    font-size: 14px;
+    color: #555;
+    margin-top: 8px;
+    text-align: center;
+    opacity: 0.8;
+    user-select: none;
+}
+
+/* 🎮 닉네임 입력창 스타일 */
+#player_name_input {
+    font-family: 'Cafe24ProUp';
+    font-size: 14px;
+    padding: 3px 5px;
+    margin-top: 5px;
+    border: 1px solid #37558d;
+    border-radius: 5px;
+    text-align: center;
+    width: 120px;
+}
+#save_name_btn {
+    font-family: 'PfStardust';
+    font-size: 13px;
+    background-color: #133681;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    margin-left: 4px;
+    padding: 3px 8px;
+    cursor: pointer;
+}
+#save_name_btn:hover { background-color: #37558d; }
+
+#player_name_display {
+    font-family: 'Cafe24ProUp';
+    font-size: 16px;
+    color: #354486;
+    margin-top: 6px;
+}

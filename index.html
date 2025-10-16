@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아쿠아리움_뱀 게임</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div style="text-align: center;">
+        <h1 id="title">Aquarium Snake Game</h1>
+        <p>
+            화살표 키 사용 가능합니다. <br/>
+            START 버튼이나 SPACE BAR를 눌러 게임을 시작하세요!
+        </p>
+
+        <div id="score_board">
+            <span id="best_score">BEST SCORE: 0</span> |
+            <span id="my_score">SCORE: 0</span><br>
+            
+            <!-- 🎮 닉네임 입력 추가 -->
+            <input type="text" id="player_name_input" placeholder="닉네임 입력" maxlength="12">
+            <button id="save_name_btn">확인</button>
+            <div id="player_name_display"></div>
+        </div>
+
+        <canvas id="game_area"></canvas><br>
+
+        <p id="copyright">
+            제작자: @REAPPEARANCE
+        </p>
+        
+        <button class="btn up">UP</button><br>
+        <button class="btn left">LEFT</button>
+        <button class="btn right">RIGHT</button><br>
+        <button class="btn down">DOWN</button><br>
+
+        <button id="start">START</button>
+        <button id="pause" disabled>PAUSE</button><br>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
