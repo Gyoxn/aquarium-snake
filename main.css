@@ -93,7 +93,7 @@ html { font-family: 'Cafe24ProUp'; }
     opacity: 0.7;
 }
 
-/* 하단 저작권 */
+/* 하단 저작권 — 모바일 대응 개선 */
 #copyright-bottom {
     font-family: 'PfStardust';
     font-size: 12px;
@@ -101,6 +101,11 @@ html { font-family: 'Cafe24ProUp'; }
     margin-top: 30px;
     text-align: center;
     user-select: none;
+    opacity: 0.55;
+    -webkit-text-fill-color: rgba(0, 0, 0, 0.45);
+    -webkit-opacity: 0.55;
+    pointer-events: none;
+    will-change: opacity;
 }
 
 /* 모바일 반응형 */
@@ -114,6 +119,12 @@ html { font-family: 'Cafe24ProUp'; }
     }
     #score_board {
         font-size: 14px;
+    }
+
+    /* 모바일용 저작권 — 살짝 더 흐리게 */
+    #copyright-bottom {
+        opacity: 0.35 !important;
+        -webkit-text-fill-color: rgba(0, 0, 0, 0.35) !important;
     }
 }
 
