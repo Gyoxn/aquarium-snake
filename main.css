@@ -92,3 +92,7 @@ html { font-family: 'Cafe24ProUp'; }
     color: #354486;
     margin-top: 6px;
 }
+
+html, body {
+  touch-action: manipulation;
+}
