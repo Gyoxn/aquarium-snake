@@ -65,7 +65,7 @@ html { font-family: 'Cafe24ProUp'; }
 /* 🎮 닉네임 입력창 스타일 */
 #player_name_input {
     font-family: 'Cafe24ProUp';
-    font-size: 16px; /* ✅ 확대 방지: 16px 이상 유지 */
+    font-size: 16px;
     padding: 3px 5px;
     margin-top: 5px;
     border: 1px solid #37558d;
@@ -75,7 +75,7 @@ html { font-family: 'Cafe24ProUp'; }
 }
 #save_name_btn {
     font-family: 'PfStardust';
-    font-size: 16px; /* ✅ 확대 방지 */
+    font-size: 16px;
     background-color: #133681;
     color: #fff;
     border: none;
@@ -98,4 +98,50 @@ html, body, #game_container, #control_panel, canvas, button, input {
   touch-action: none;
   -ms-touch-action: none;
   -webkit-tap-highlight-color: transparent;
+}
+
+/* ✅ 모바일 반응형: 게임 크기 축소 */
+@media screen and (max-width: 600px) {
+  #title {
+    font-size: 22px;
+    text-shadow: 2px 3px #37558d;
+  }
+
+  #game_area {
+    width: 360px;
+    height: 280px;
+  }
+
+  .btn {
+    width: 55px;
+    height: 30px;
+    font-size: 13px;
+    margin: 3px;
+  }
+
+  #start, #pause {
+    width: 85px;
+    height: 28px;
+    font-size: 14px;
+    margin: 12px 4px;
+  }
+
+  #score_board {
+    font-size: 15px;
+  }
+
+  #player_name_input {
+    width: 100px;
+    font-size: 14px;
+  }
+
+  #save_name_btn {
+    font-size: 13px;
+    padding: 3px 6px;
+  }
+
+  #copyright {
+    font-size: 12px;
+    margin-top: 6px;
+  }
 }
