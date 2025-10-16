@@ -52,20 +52,10 @@ html { font-family: 'Cafe24ProUp'; }
 #start:hover, #pause:hover:not(:disabled) { background-color: #4871bd; }
 #start:disabled, #pause:disabled { background-color: #232942; }
 
-#copyright {
-    font-family: 'PfStardust';
-    font-size: 14px;
-    color: #555;
-    margin-top: 8px;
-    text-align: center;
-    opacity: 0.8;
-    user-select: none;
-}
-
 /* 🎮 닉네임 입력창 스타일 */
 #player_name_input {
     font-family: 'Cafe24ProUp';
-    font-size: 16px;
+    font-size: 14px;
     padding: 3px 5px;
     margin-top: 5px;
     border: 1px solid #37558d;
@@ -75,7 +65,7 @@ html { font-family: 'Cafe24ProUp'; }
 }
 #save_name_btn {
     font-family: 'PfStardust';
-    font-size: 16px;
+    font-size: 13px;
     background-color: #133681;
     color: #fff;
     border: none;
@@ -93,55 +83,40 @@ html { font-family: 'Cafe24ProUp'; }
     margin-top: 6px;
 }
 
-/* ✅ 터치 확대 방지용 */
-html, body, #game_container, #control_panel, canvas, button, input {
-  touch-action: none;
-  -ms-touch-action: none;
-  -webkit-tap-highlight-color: transparent;
+/* 상단 저작권 */
+#copyright-top {
+    font-family: 'PfStardust';
+    font-size: 13px;
+    color: #666;
+    margin-top: -5px;
+    margin-bottom: 10px;
+    opacity: 0.7;
 }
 
-/* ✅ 모바일 반응형: 게임 크기 축소 */
-@media screen and (max-width: 600px) {
-  #title {
-    font-size: 22px;
-    text-shadow: 2px 3px #37558d;
-  }
-
-  #game_area {
-    width: 360px;
-    height: 280px;
-  }
-
-  .btn {
-    width: 55px;
-    height: 30px;
-    font-size: 13px;
-    margin: 3px;
-  }
-
-  #start, #pause {
-    width: 85px;
-    height: 28px;
-    font-size: 14px;
-    margin: 12px 4px;
-  }
-
-  #score_board {
-    font-size: 15px;
-  }
-
-  #player_name_input {
-    width: 100px;
-    font-size: 14px;
-  }
-
-  #save_name_btn {
-    font-size: 13px;
-    padding: 3px 6px;
-  }
-
-  #copyright {
+/* 하단 저작권 */
+#copyright-bottom {
+    font-family: 'PfStardust';
     font-size: 12px;
-    margin-top: 6px;
-  }
+    color: rgba(0, 0, 0, 0.45);
+    margin-top: 30px;
+    text-align: center;
+    user-select: none;
+}
+
+/* 모바일 반응형 */
+@media screen and (max-width: 600px) {
+    #game_area {
+        width: 320px !important;
+        height: 250px !important;
+    }
+    #title {
+        font-size: 24px;
+    }
+    #score_board {
+        font-size: 14px;
+    }
+}
+
+html, body {
+  touch-action: manipulation;
 }
